@@ -16,7 +16,7 @@ class Download_Image {
             header('Cache-Control: must-revalidate');
             header('Pragma: public');
             header('Content-Length: ' . filesize($image_path));
-            flush(); // Flush system output buffer
+            flush();
             readfile($image_path);
             file_put_contents(__DIR__.'/'.$this->logfile,"image :".base64_decode($this->path)." has been downloaded by ".$_SERVER['REMOTE_ADDR']." and is comming from ".$_SERVER['HTTP_REFERER']."\r\n",FILE_APPEND);
         }
